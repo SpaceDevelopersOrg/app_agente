@@ -1,0 +1,196 @@
+<section id="hero">
+	<div class="hero-inner">
+		<div class="hero-content">
+			<span class="badge">IA para empresas</span>
+			<h1>Tu agente inteligente de <span class="highlight">ventas</span> y <span class="highlight">gestión</span></h1>
+			<p class="subtitle">
+				Automatiza prospección, seguimiento, reportes y tareas operativas.
+				Tu equipo enfocado en lo que importa, mientras SalesPro Agent gestiona el resto.
+			</p>
+			<div class="hero-actions">
+				<a href="#features" class="btn btn-primary">Conocer capacidades</a>
+				<a href="#contact" class="btn btn-secondary">Solicitar demo</a>
+			</div>
+		</div>
+	</div>
+	<div class="hero-bg">
+		<div class="orb orb-1"></div>
+		<div class="orb orb-2"></div>
+		<div class="orb orb-3"></div>
+	</div>
+</section>
+
+<style>
+	#hero {
+		position: relative;
+		min-height: 90vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(160deg, #f0faf4 0%, #e8f5ef 40%, #dceee3 100%);
+		overflow: hidden;
+	}
+
+	.hero-inner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		max-width: 820px;
+		margin: 0 auto;
+		padding: 80px 24px;
+		text-align: center;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 6px 16px;
+		border-radius: 100px;
+		background: var(--dusty-olive);
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		margin-bottom: 24px;
+	}
+
+	h1 {
+		font-size: 52px;
+		font-weight: 800;
+		line-height: 1.1;
+		color: var(--black);
+		margin-bottom: 24px;
+		letter-spacing: -0.03em;
+	}
+
+	.highlight {
+		background: linear-gradient(135deg, var(--mint-leaf), var(--neon-ice));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.subtitle {
+		font-size: 18px;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin: 0 auto 40px;
+		line-height: 1.7;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 16px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 14px 32px;
+		border-radius: 12px;
+		font-size: 16px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.25s ease;
+		border: none;
+	}
+
+	.btn-primary {
+		background: var(--black);
+		color: white;
+	}
+
+	.btn-primary:hover {
+		opacity: 0.85;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--black);
+		border: 2px solid var(--black);
+	}
+
+	.btn-secondary:hover {
+		background: var(--black);
+		color: white;
+		transform: translateY(-2px);
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none;
+	}
+
+	.orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(60px);
+		opacity: 0.5;
+		animation: float 6s ease-in-out infinite;
+	}
+
+	.orb-1 {
+		width: 300px;
+		height: 300px;
+		background: var(--mint-leaf);
+		top: -15%;
+		right: -8%;
+		animation-delay: 0s;
+	}
+
+	.orb-2 {
+		width: 220px;
+		height: 220px;
+		background: var(--neon-ice);
+		bottom: -15%;
+		left: -8%;
+		animation-delay: 2s;
+	}
+
+	.orb-3 {
+		width: 160px;
+		height: 160px;
+		background: var(--dusty-olive);
+		bottom: 30%;
+		right: 20%;
+		animation-delay: 4s;
+	}
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0) scale(1); }
+		50% { transform: translateY(-20px) scale(1.05); }
+	}
+
+	@media (max-width: 900px) {
+		h1 {
+			font-size: 36px;
+		}
+
+		.hero-inner {
+			padding-top: 100px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		h1 {
+			font-size: 28px;
+		}
+
+		#hero {
+			min-height: 80vh;
+		}
+	}
+</style>

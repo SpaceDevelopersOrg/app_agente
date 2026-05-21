@@ -1,0 +1,74 @@
+<section id="stats">
+	<div class="container">
+		<div class="stats-grid">
+			<div class="stat-card">
+				<span class="stat-number">500+</span>
+				<span class="stat-label">empresas confían</span>
+			</div>
+			<div class="stat-card">
+				<span class="stat-number">98%</span>
+				<span class="stat-label">precisión en predicciones</span>
+			</div>
+			<div class="stat-card">
+				<span class="stat-number">40%</span>
+				<span class="stat-label">más eficiencia operativa</span>
+			</div>
+			<div class="stat-card">
+				<span class="stat-number">24/7</span>
+				<span class="stat-label">disponibilidad continua</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	#stats {
+		padding: 64px 0;
+		background: var(--black);
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 32px;
+	}
+
+	.stat-card {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.stat-number {
+		font-size: 42px;
+		font-weight: 800;
+		color: var(--neon-ice);
+		line-height: 1;
+		letter-spacing: -0.02em;
+	}
+
+	.stat-label {
+		font-size: 15px;
+		color: rgba(255, 255, 255, 0.7);
+		font-weight: 500;
+	}
+
+	@media (max-width: 768px) {
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 40px;
+		}
+
+		.stat-number {
+			font-size: 34px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		#stats {
+			padding: 48px 0;
+		}
+	}
+</style>
