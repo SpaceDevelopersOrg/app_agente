@@ -11,7 +11,7 @@
 
 		<div class="features-grid">
 			<div class="feature-card">
-				<div class="icon" style="background: #e8f5ef;">
+				<div class="icon" style="background: var(--bg-secondary);">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--mint-leaf)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M12 2L2 7l10 5 10-5-10-5z"/>
 						<path d="M2 17l10 5 10-5"/>
@@ -23,7 +23,7 @@
 			</div>
 
 			<div class="feature-card">
-				<div class="icon" style="background: #f0faf4;">
+				<div class="icon" style="background: var(--bg-secondary);">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--dusty-olive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<rect x="2" y="2" width="20" height="20" rx="2"/>
 						<path d="M8 12h8"/>
@@ -35,7 +35,7 @@
 			</div>
 
 			<div class="feature-card">
-				<div class="icon" style="background: #e8f5ef;">
+				<div class="icon" style="background: var(--bg-secondary);">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--mint-leaf)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 						<polyline points="14 2 14 8 20 8"/>
@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="feature-card">
-				<div class="icon" style="background: #f0faf4;">
+				<div class="icon" style="background: var(--bg-secondary);">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--dusty-olive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
 						<polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
@@ -61,7 +61,7 @@
 			</div>
 
 			<div class="feature-card">
-				<div class="icon" style="background: #e8f5ef;">
+				<div class="icon" style="background: var(--bg-secondary);">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--mint-leaf)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<circle cx="11" cy="11" r="8"/>
 						<line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -72,7 +72,7 @@
 			</div>
 
 			<div class="feature-card">
-				<div class="icon" style="background: #f0faf4;">
+				<div class="icon" style="background: var(--bg-secondary);">
 					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--dusty-olive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
 						<circle cx="9" cy="7" r="4"/>
@@ -90,7 +90,8 @@
 <style>
 	#features {
 		padding: 100px 0;
-		background: white;
+		background: var(--bg);
+		transition: background 0.3s ease;
 	}
 
 	.section-header {
@@ -102,20 +103,22 @@
 		display: inline-block;
 		padding: 6px 16px;
 		border-radius: 100px;
-		background: var(--dusty-olive);
-		color: white;
+		background: var(--badge-bg);
+		color: var(--badge-text);
 		font-size: 14px;
 		font-weight: 600;
 		letter-spacing: 0.02em;
 		margin-bottom: 20px;
+		transition: background 0.3s ease, color 0.3s ease;
 	}
 
 	h2 {
 		font-size: 40px;
 		font-weight: 800;
-		color: var(--black);
+		color: var(--text-primary);
 		margin-bottom: 16px;
 		letter-spacing: -0.02em;
+		transition: color 0.3s ease;
 	}
 
 	.section-subtitle {
@@ -123,6 +126,7 @@
 		color: var(--text-secondary);
 		max-width: 600px;
 		margin: 0 auto;
+		transition: color 0.3s ease;
 	}
 
 	.features-grid {
@@ -134,9 +138,9 @@
 	.feature-card {
 		padding: 36px 28px;
 		border-radius: 20px;
-		border: 1px solid #e8f0ec;
+		border: 1px solid var(--border);
 		transition: all 0.3s ease;
-		background: white;
+		background: var(--bg-card);
 		text-align: center;
 		display: flex;
 		flex-direction: column;
@@ -145,7 +149,7 @@
 
 	.feature-card:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+		box-shadow: 0 12px 40px var(--hover-shadow);
 		border-color: var(--mint-leaf);
 	}
 
@@ -158,19 +162,22 @@
 		justify-content: center;
 		margin-bottom: 20px;
 		flex-shrink: 0;
+		transition: background 0.3s ease;
 	}
 
 	h3 {
 		font-size: 20px;
 		font-weight: 700;
-		color: var(--black);
+		color: var(--text-primary);
 		margin-bottom: 12px;
+		transition: color 0.3s ease;
 	}
 
 	.feature-card p {
 		font-size: 15px;
 		color: var(--text-secondary);
 		line-height: 1.7;
+		transition: color 0.3s ease;
 	}
 
 	@media (max-width: 900px) {

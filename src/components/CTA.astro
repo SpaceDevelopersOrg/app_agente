@@ -16,7 +16,8 @@
 <style>
 	#contact {
 		padding: 100px 0;
-		background: linear-gradient(160deg, #f0faf4 0%, #e8f5ef 40%, #dceee3 100%);
+		background: var(--hero-bg);
+		transition: background 0.3s ease;
 	}
 
 	.cta-inner {
@@ -29,20 +30,22 @@
 		display: inline-block;
 		padding: 6px 16px;
 		border-radius: 100px;
-		background: var(--dusty-olive);
-		color: white;
+		background: var(--badge-bg);
+		color: var(--badge-text);
 		font-size: 14px;
 		font-weight: 600;
 		letter-spacing: 0.02em;
 		margin-bottom: 20px;
+		transition: background 0.3s ease, color 0.3s ease;
 	}
 
 	h2 {
 		font-size: 40px;
 		font-weight: 800;
-		color: var(--black);
+		color: var(--text-primary);
 		margin-bottom: 16px;
 		letter-spacing: -0.02em;
+		transition: color 0.3s ease;
 	}
 
 	.cta-text {
@@ -50,6 +53,7 @@
 		color: var(--text-secondary);
 		line-height: 1.7;
 		margin-bottom: 40px;
+		transition: color 0.3s ease;
 	}
 
 	.cta-actions {
@@ -72,8 +76,8 @@
 	}
 
 	.btn-primary {
-		background: var(--black);
-		color: white;
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
 	}
 
 	.btn-primary:hover {
@@ -84,13 +88,13 @@
 
 	.btn-secondary {
 		background: transparent;
-		color: var(--black);
-		border: 2px solid var(--black);
+		color: var(--btn-secondary-text);
+		border: 2px solid var(--btn-secondary-border);
 	}
 
 	.btn-secondary:hover {
-		background: var(--black);
-		color: white;
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
 		transform: translateY(-2px);
 	}
 

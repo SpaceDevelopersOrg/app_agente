@@ -24,13 +24,81 @@
 		--dusty-olive: #6e9075;
 		--mint-leaf: #78c091;
 		--neon-ice: #81f0e5;
+	}
 
+	[data-theme="light"],
+	:root {
 		--bg: #ffffff;
-		--text-primary: var(--black);
-		--text-secondary: var(--ebony);
-		--accent: var(--mint-leaf);
-		--accent-light: var(--neon-ice);
-		--brand: var(--dusty-olive);
+		--bg-secondary: #f8fbf9;
+		--bg-card: #ffffff;
+		--text-primary: #000000;
+		--text-secondary: #5b6057;
+		--border: #e8f0ec;
+		--badge-bg: #6e9075;
+		--badge-text: #ffffff;
+		--btn-primary-bg: #000000;
+		--btn-primary-text: #ffffff;
+		--btn-secondary-border: #000000;
+		--btn-secondary-text: #000000;
+		--hero-bg: linear-gradient(160deg, #f0faf4 0%, #e8f5ef 40%, #dceee3 100%);
+		--section-alt-bg: #f8fbf9;
+		--card-shadow: rgba(0, 0, 0, 0.06);
+		--hover-shadow: rgba(0, 0, 0, 0.08);
+		--step-number-bg: #000000;
+		--step-number-text: #ffffff;
+		--connector-bg: #000000;
+		--stats-bg: #000000;
+		--footer-bg: #000000;
+	}
+
+	[data-theme="dark"] {
+		--bg: #0f0f0f;
+		--bg-secondary: #161616;
+		--bg-card: #1c1c1c;
+		--text-primary: #f0f0f0;
+		--text-secondary: #9ca3af;
+		--border: #2a2a2a;
+		--badge-bg: #81f0e5;
+		--badge-text: #000000;
+		--btn-primary-bg: #ffffff;
+		--btn-primary-text: #000000;
+		--btn-secondary-border: #ffffff;
+		--btn-secondary-text: #ffffff;
+		--hero-bg: linear-gradient(160deg, #0f1f14 0%, #1a2a1f 40%, #0f1f14 100%);
+		--section-alt-bg: #161616;
+		--card-shadow: rgba(0, 0, 0, 0.3);
+		--hover-shadow: rgba(0, 0, 0, 0.4);
+		--step-number-bg: #81f0e5;
+		--step-number-text: #000000;
+		--connector-bg: #81f0e5;
+		--stats-bg: #1c1c1c;
+		--footer-bg: #1c1c1c;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg: #0f0f0f;
+			--bg-secondary: #161616;
+			--bg-card: #1c1c1c;
+			--text-primary: #f0f0f0;
+			--text-secondary: #9ca3af;
+			--border: #2a2a2a;
+			--badge-bg: #81f0e5;
+			--badge-text: #000000;
+			--btn-primary-bg: #ffffff;
+			--btn-primary-text: #000000;
+			--btn-secondary-border: #ffffff;
+			--btn-secondary-text: #ffffff;
+			--hero-bg: linear-gradient(160deg, #0f1f14 0%, #1a2a1f 40%, #0f1f14 100%);
+			--section-alt-bg: #161616;
+			--card-shadow: rgba(0, 0, 0, 0.3);
+			--hover-shadow: rgba(0, 0, 0, 0.4);
+			--step-number-bg: #81f0e5;
+			--step-number-text: #000000;
+			--connector-bg: #81f0e5;
+			--stats-bg: #1c1c1c;
+			--footer-bg: #1c1c1c;
+		}
 	}
 
 	html {
@@ -47,6 +115,7 @@
 		background: var(--bg);
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		transition: background 0.3s ease, color 0.3s ease;
 	}
 
 	*,

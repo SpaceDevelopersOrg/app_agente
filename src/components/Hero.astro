@@ -27,8 +27,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: linear-gradient(160deg, #f0faf4 0%, #e8f5ef 40%, #dceee3 100%);
+		background: var(--hero-bg);
 		overflow: hidden;
+		transition: background 0.3s ease;
 	}
 
 	.hero-inner {
@@ -51,21 +52,23 @@
 		display: inline-block;
 		padding: 6px 16px;
 		border-radius: 100px;
-		background: var(--dusty-olive);
-		color: white;
+		background: var(--badge-bg);
+		color: var(--badge-text);
 		font-size: 14px;
 		font-weight: 600;
 		letter-spacing: 0.02em;
 		margin-bottom: 24px;
+		transition: background 0.3s ease, color 0.3s ease;
 	}
 
 	h1 {
 		font-size: 52px;
 		font-weight: 800;
 		line-height: 1.1;
-		color: var(--black);
+		color: var(--text-primary);
 		margin-bottom: 24px;
 		letter-spacing: -0.03em;
+		transition: color 0.3s ease;
 	}
 
 	.highlight {
@@ -81,6 +84,7 @@
 		max-width: 600px;
 		margin: 0 auto 40px;
 		line-height: 1.7;
+		transition: color 0.3s ease;
 	}
 
 	.hero-actions {
@@ -103,8 +107,8 @@
 	}
 
 	.btn-primary {
-		background: var(--black);
-		color: white;
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
 	}
 
 	.btn-primary:hover {
@@ -115,13 +119,13 @@
 
 	.btn-secondary {
 		background: transparent;
-		color: var(--black);
-		border: 2px solid var(--black);
+		color: var(--btn-secondary-text);
+		border: 2px solid var(--btn-secondary-border);
 	}
 
 	.btn-secondary:hover {
-		background: var(--black);
-		color: white;
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
 		transform: translateY(-2px);
 	}
 
