@@ -1,0 +1,527 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+---
+
+<Layout>
+	<ThemeToggle />
+	<section id="docs-header">
+		<div class="container">
+			<span class="badge">API Reference</span>
+			<h1>Documentación de la API</h1>
+			<p class="subtitle">
+				Interactúa con el agente de ventas agropecuario mediante peticiones HTTP.
+				Todos los endpoints están disponibles en la siguiente base URL:
+			</p>
+			<code class="base-url">https://agent.agrocapital.space</code>
+		</div>
+	</section>
+
+	<section id="endpoints">
+		<div class="container">
+
+			<div class="endpoint-card">
+				<div class="endpoint-head">
+					<span class="method get">GET</span>
+					<code class="path">/api/agent/health</code>
+					<button class="try-btn" data-endpoint="health">Try it</button>
+				</div>
+				<p class="endpoint-desc">Verifica que el agente esté operativo. Útil para monitoreo y health checks.</p>
+				<div class="example-box">
+					<div class="example-header">Ejemplo</div>
+					<pre class="example-content" data-example="health"></pre>
+				</div>
+				<div class="response-box">
+					<div class="response-header">Respuesta</div>
+					<pre class="response-content" data-response="health"></pre>
+				</div>
+				<div class="try-section" id="try-health">
+					<button class="send-btn" data-url="https://agent.agrocapital.space/api/agent/health" data-method="GET">Enviar petición</button>
+					<div class="result-box">
+						<pre class="result-content" id="result-health">Haz clic en "Enviar petición" para probar...</pre>
+					</div>
+				</div>
+			</div>
+
+			<div class="endpoint-card">
+				<div class="endpoint-head">
+					<span class="method get">GET</span>
+					<code class="path">/api/agent/models</code>
+					<button class="try-btn" data-endpoint="models">Try it</button>
+				</div>
+				<p class="endpoint-desc">Lista los modelos NVIDIA NIM disponibles para usar con el agente.</p>
+				<div class="example-box">
+					<div class="example-header">Ejemplo</div>
+					<pre class="example-content" data-example="models"></pre>
+				</div>
+				<div class="response-box">
+					<div class="response-header">Respuesta</div>
+					<pre class="response-content" data-response="models"></pre>
+				</div>
+				<div class="try-section" id="try-models">
+					<button class="send-btn" data-url="https://agent.agrocapital.space/api/agent/models" data-method="GET">Enviar petición</button>
+					<div class="result-box">
+						<pre class="result-content" id="result-models">Haz clic en "Enviar petición" para probar...</pre>
+					</div>
+				</div>
+			</div>
+
+			<div class="endpoint-card">
+				<div class="endpoint-head">
+					<span class="method post">POST</span>
+					<code class="path">/api/agent/chat</code>
+					<button class="try-btn" data-endpoint="chat">Try it</button>
+				</div>
+				<p class="endpoint-desc">Envía una consulta al agente y recibe la respuesta completa en JSON. El agente planifica tareas, ejecuta herramientas y responde.</p>
+				<div class="example-box">
+					<div class="example-header">Ejemplo</div>
+					<pre class="example-content" data-example="chat"></pre>
+				</div>
+				<div class="response-box">
+					<div class="response-header">Respuesta</div>
+					<pre class="response-content" data-response="chat"></pre>
+				</div>
+				<div class="try-section" id="try-chat">
+					<div class="input-group">
+						<label for="chat-query">Query</label>
+						<input type="text" id="chat-query" value="¿Qué fertilizantes tienen disponibles?" />
+					</div>
+					<button class="send-btn" data-url="https://agent.agrocapital.space/api/agent/chat" data-method="POST" data-input="chat-query">Enviar petición</button>
+					<div class="result-box">
+						<pre class="result-content" id="result-chat">Haz clic en "Enviar petición" para probar...</pre>
+					</div>
+				</div>
+			</div>
+
+			<div class="endpoint-card">
+				<div class="endpoint-head">
+					<span class="method post">POST</span>
+					<code class="path">/api/agent/chat/stream</code>
+					<button class="try-btn" data-endpoint="chat-stream">Try it</button>
+				</div>
+				<p class="endpoint-desc">Misma consulta que <code>/chat</code> pero la respuesta llega como SSE (Server-Sent Events). Cada paso del agente emite un evento.</p>
+				<div class="example-box">
+					<div class="example-header">Ejemplo</div>
+					<pre class="example-content" data-example="stream"></pre>
+				</div>
+				<div class="response-box">
+					<div class="response-header">Eventos SSE</div>
+					<pre class="response-content" data-response="stream"></pre>
+				</div>
+				<div class="try-section" id="try-chat-stream">
+					<div class="input-group">
+						<label for="stream-query">Query</label>
+						<input type="text" id="stream-query" value="Necesito semillas de maíz" />
+					</div>
+					<button class="send-btn" data-url="https://agent.agrocapital.space/api/agent/chat/stream" data-method="POST" data-input="stream-query" data-stream="true">Enviar petición</button>
+					<div class="result-box">
+						<pre class="result-content" id="result-chat-stream">Haz clic en "Enviar petición" para probar...</pre>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+</Layout>
+
+<style>
+	#docs-header {
+		padding: 80px 0 48px;
+		background: var(--hero-bg);
+		text-align: center;
+		transition: background 0.3s ease;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 6px 16px;
+		border-radius: 100px;
+		background: var(--badge-bg);
+		color: var(--badge-text);
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		margin-bottom: 20px;
+		transition: background 0.3s ease, color 0.3s ease;
+	}
+
+	h1 {
+		font-size: 42px;
+		font-weight: 800;
+		color: var(--text-primary);
+		margin-bottom: 16px;
+		letter-spacing: -0.02em;
+		transition: color 0.3s ease;
+	}
+
+	.subtitle {
+		font-size: 18px;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin: 0 auto 24px;
+		line-height: 1.7;
+		transition: color 0.3s ease;
+	}
+
+	.base-url {
+		display: inline-block;
+		padding: 12px 24px;
+		border-radius: 12px;
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--mint-leaf);
+		font-family: 'SF Mono', 'Fira Code', monospace;
+		transition: background 0.3s ease, border-color 0.3s ease;
+	}
+
+	#endpoints {
+		padding: 48px 0 80px;
+		background: var(--bg);
+		transition: background 0.3s ease;
+	}
+
+	.endpoint-card {
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		border-radius: 20px;
+		padding: 32px;
+		margin-bottom: 24px;
+		transition: background 0.3s ease, border-color 0.3s ease;
+	}
+
+	.endpoint-head {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 12px;
+		flex-wrap: wrap;
+	}
+
+	.method {
+		display: inline-block;
+		padding: 4px 10px;
+		border-radius: 6px;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.method.get {
+		background: #dbeafe;
+		color: #1d4ed8;
+	}
+
+	.method.post {
+		background: #dcfce7;
+		color: #16a34a;
+	}
+
+	.path {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--text-primary);
+		font-family: 'SF Mono', 'Fira Code', monospace;
+		transition: color 0.3s ease;
+	}
+
+	.try-btn {
+		margin-left: auto;
+		padding: 6px 16px;
+		border-radius: 8px;
+		border: 1px solid var(--border);
+		background: var(--bg-card);
+		color: var(--text-secondary);
+		font-size: 13px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.try-btn:hover {
+		border-color: var(--mint-leaf);
+		color: var(--mint-leaf);
+	}
+
+	.endpoint-desc {
+		font-size: 15px;
+		color: var(--text-secondary);
+		line-height: 1.7;
+		margin-bottom: 20px;
+		transition: color 0.3s ease;
+	}
+
+	.endpoint-desc code {
+		font-family: 'SF Mono', 'Fira Code', monospace;
+		font-size: 13px;
+		background: var(--bg-secondary);
+		padding: 2px 6px;
+		border-radius: 4px;
+	}
+
+	.example-box,
+	.response-box {
+		margin-bottom: 16px;
+	}
+
+	.example-header,
+	.response-header {
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--text-secondary);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 8px;
+	}
+
+	pre {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 16px 20px;
+		font-size: 13px;
+		font-family: 'SF Mono', 'Fira Code', monospace;
+		line-height: 1.6;
+		overflow-x: auto;
+		color: var(--text-primary);
+		white-space: pre-wrap;
+		transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+	}
+
+	.try-section {
+		margin-top: 16px;
+		padding-top: 20px;
+		border-top: 1px solid var(--border);
+		display: none;
+		flex-direction: column;
+		gap: 16px;
+		transition: border-color 0.3s ease;
+	}
+
+	.try-section.open {
+		display: flex;
+	}
+
+	.input-group {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.input-group label {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--text-secondary);
+	}
+
+	.input-group input {
+		padding: 10px 14px;
+		border-radius: 10px;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--text-primary);
+		font-size: 14px;
+		font-family: inherit;
+		outline: none;
+		transition: border-color 0.2s ease, background 0.3s ease, color 0.3s ease;
+	}
+
+	.input-group input:focus {
+		border-color: var(--mint-leaf);
+	}
+
+	.send-btn {
+		align-self: flex-start;
+		padding: 10px 24px;
+		border-radius: 10px;
+		border: none;
+		background: var(--black);
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.send-btn:hover {
+		opacity: 0.85;
+		transform: translateY(-1px);
+	}
+
+	.send-btn.loading {
+		opacity: 0.6;
+		pointer-events: none;
+	}
+
+	.result-box {
+		border-radius: 12px;
+		border: 1px solid var(--border);
+		overflow: hidden;
+	}
+
+	.result-content {
+		margin: 0;
+		border: none;
+		border-radius: 0;
+		min-height: 60px;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+
+	.result-content.loading {
+		opacity: 0.5;
+	}
+
+	@media (max-width: 600px) {
+		h1 { font-size: 28px; }
+		.endpoint-card { padding: 20px; }
+		.path { font-size: 14px; }
+		pre { font-size: 12px; padding: 12px 16px; }
+	}
+</style>
+
+<script>
+	const examples = {
+		health: [
+			'curl -s https://agent.agrocapital.space/api/agent/health'
+		].join('\n'),
+		models: [
+			'curl -s https://agent.agrocapital.space/api/agent/models'
+		].join('\n'),
+		chat: [
+			'curl -s https://agent.agrocapital.space/api/agent/chat \\',
+			'  -H "Content-Type: application/json" \\',
+			'  -d \'{"query": "¿Qué fertilizantes tienen disponibles?"}\''
+		].join('\n'),
+		stream: [
+			'curl -sN https://agent.agrocapital.space/api/agent/chat/stream \\',
+			'  -H "Content-Type: application/json" \\',
+			'  -d \'{"query": "Necesito semillas de maíz"}\''
+		].join('\n'),
+	};
+
+	const responses = {
+		health: JSON.stringify({
+			"agent": "deep-agent-agropecuario",
+			"status": "ok",
+			"version": "1.0.0"
+		}, null, 2),
+		models: JSON.stringify({
+			"default": "meta/llama-3.1-8b-instruct",
+			"models": [
+				{"id": "meta/llama-3.1-8b-instruct", "provider": "nvidia", "description": "Modelo rápido y eficiente para tool calling (default)"},
+				{"id": "nvidia/nemotron-4-340b-instruct", "provider": "nvidia", "description": "Modelo de gran capacidad para tareas complejas"},
+				{"id": "meta/llama-3.3-70b-instruct", "provider": "nvidia", "description": "Balance entre calidad y velocidad"}
+			]
+		}, null, 2),
+		chat: JSON.stringify({
+			"session_id": "8aa3d9b3-...",
+			"response": "Resumen de fertilizantes encontrados...",
+			"tasks": ["..."],
+			"total_iterations": 12,
+			"trace": ["..."]
+		}, null, 2),
+		stream: [
+			'event: thinking',
+			'data: {"type": "thinking", "iteration": 0}',
+			'',
+			'event: tool_call',
+			'data: {"type": "tool_call", "name": "consultar_productos", "args": {...}}',
+			'',
+			'event: tool_result',
+			'data: {"type": "tool_result", ...}',
+			'',
+			'event: final',
+			'data: {"type": "final", "content": "Respuesta final..."}'
+		].join('\n')
+	};
+
+	document.querySelectorAll('.example-content').forEach(el => {
+		const key = el.dataset.example;
+		if (examples[key]) el.textContent = examples[key];
+	});
+
+	document.querySelectorAll('.response-content').forEach(el => {
+		const key = el.dataset.response;
+		if (responses[key]) el.textContent = responses[key];
+	});
+
+	document.querySelectorAll('.try-btn').forEach(btn => {
+		btn.addEventListener('click', () => {
+			const ep = btn.dataset.endpoint;
+			const section = document.getElementById('try-' + ep);
+			section.classList.toggle('open');
+		});
+	});
+
+	document.querySelectorAll('.send-btn').forEach(btn => {
+		btn.addEventListener('click', async () => {
+			const url = btn.dataset.url;
+			const method = btn.dataset.method;
+			const inputId = btn.dataset.input;
+			const isStream = btn.dataset.stream === 'true';
+			const resultId = 'result-' + (btn.closest('.try-section').id.replace('try-', ''));
+			const resultEl = document.getElementById(resultId);
+
+			btn.classList.add('loading');
+			resultEl.classList.add('loading');
+			resultEl.textContent = 'Cargando...';
+
+			try {
+				if (isStream) {
+					resultEl.textContent = '';
+					const query = document.getElementById(inputId).value;
+					const response = await fetch(url, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ query })
+					});
+					const reader = response.body.getReader();
+					const decoder = new TextDecoder();
+					let buffer = '';
+					while (true) {
+						const { done, value } = await reader.read();
+						if (done) break;
+						buffer += decoder.decode(value, { stream: true });
+						const lines = buffer.split('\n');
+						buffer = lines.pop() || '';
+						for (const line of lines) {
+							if (line.startsWith('data: ')) {
+								try {
+									const data = JSON.parse(line.slice(6));
+									const text = data.content || data.type || JSON.stringify(data);
+									resultEl.textContent += text + '\n';
+								} catch {
+									resultEl.textContent += line + '\n';
+								}
+							} else if (line.trim()) {
+								resultEl.textContent += line + '\n';
+							}
+						}
+						resultEl.scrollTop = resultEl.scrollHeight;
+					}
+				} else {
+					const options = {
+						method,
+						headers: {}
+					};
+					if (method === 'POST') {
+						options.headers['Content-Type'] = 'application/json';
+						const query = document.getElementById(inputId).value;
+						options.body = JSON.stringify({ query });
+					}
+					const response = await fetch(url, options);
+					const data = await response.json();
+					resultEl.textContent = JSON.stringify(data, null, 2);
+				}
+			} catch (err) {
+				resultEl.textContent = 'Error: ' + err.message;
+			} finally {
+				btn.classList.remove('loading');
+				resultEl.classList.remove('loading');
+			}
+		});
+	});
+</script>
