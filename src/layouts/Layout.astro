@@ -1,3 +1,6 @@
+---
+const { title = 'Alfred Agrocapital Agent — IA para Ventas y Organización' } = Astro.props;
+---
 <!doctype html>
 <html lang="es">
 	<head>
@@ -10,7 +13,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
-		<title>SalesPro Agent — IA para Ventas y Organización</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
@@ -138,6 +141,10 @@
 	a {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	section[id] {
+		scroll-margin-top: 80px;
 	}
 
 	.container {

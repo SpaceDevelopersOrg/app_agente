@@ -1,0 +1,199 @@
+<nav id="navbar">
+	<div class="container nav-inner">
+		<a href="/" class="logo">Alfred Agrocapital Agent</a>
+		<div class="nav-links">
+			<a href="/" class="nav-link">Inicio</a>
+			<a href="/#features" class="nav-link">Capacidades</a>
+			<a href="/#how-it-works" class="nav-link">Cómo funciona</a>
+			<a href="/docs" class="nav-link nav-cta">API</a>
+			<a href="/#contact" class="nav-link">Contacto</a>
+		</div>
+		<button class="nav-toggle" aria-label="Menú">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+</nav>
+
+<script>
+	(function() {
+		const nav = document.getElementById('navbar');
+		const toggle = document.querySelector('.nav-toggle');
+		const links = document.querySelector('.nav-links');
+		if (!nav || !toggle || !links) return;
+
+		window.addEventListener('scroll', () => {
+			nav.classList.toggle('scrolled', window.scrollY > 40);
+		}, { passive: true });
+
+		if (window.scrollY > 40) nav.classList.add('scrolled');
+
+		toggle.addEventListener('click', () => {
+			links.classList.toggle('open');
+			toggle.classList.toggle('active');
+		});
+
+		links.querySelectorAll('a').forEach(a => {
+			a.addEventListener('click', () => {
+				links.classList.remove('open');
+				toggle.classList.remove('active');
+			});
+		});
+	})();
+</script>
+
+<style>
+	#navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+		background: var(--bg);
+		border-bottom: 1px solid var(--border);
+		transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	#navbar.scrolled {
+		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+	}
+
+	[data-theme="dark"] #navbar.scrolled {
+		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+	}
+
+	[data-theme="dark"] .nav-link:hover {
+		background: rgba(110, 144, 117, 0.15);
+	}
+
+	.nav-inner {
+		display: flex;
+		margin: .7rem;
+		align-items: center;
+		justify-content: center;
+		height: 60px;
+		position: relative;
+	}
+
+	.logo {
+		margin-right: 5rem;
+		font-size: 17px;
+		font-weight: 700;
+		color: var(--text-primary);
+		letter-spacing: -0.02em;
+		transition: color 0.2s ease;
+		flex-shrink: 0;
+	}
+
+	.logo:hover {
+		color: var(--dusty-olive);
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: .4rem;
+	}
+
+	.nav-link {
+		padding: 7px 14px;
+		border-radius: 7px;
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--text-secondary);
+		transition: color 0.15s ease, background 0.15s ease;
+		white-space: nowrap;
+	}
+
+	.nav-link:hover {
+		color: var(--text-primary);
+		background: rgba(110, 144, 117, 0.07);
+	}
+
+	.nav-cta {
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text) !important;
+		padding: 7px 16px;
+		margin-left: 10px;
+	}
+
+	.nav-cta:hover {
+		opacity: 0.85;
+		background: var(--btn-primary-bg);
+	}
+
+	.nav-toggle {
+		display: none;
+		flex-direction: column;
+		gap: 5px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 8px;
+		position: absolute;
+		right: 0;
+	}
+
+	.nav-toggle span {
+		display: block;
+		width: 22px;
+		height: 2px;
+		border-radius: 2px;
+		background: var(--text-primary);
+		transition: all 0.3s ease;
+	}
+
+	.nav-toggle.active span:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+
+	.nav-toggle.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.nav-toggle.active span:nth-child(3) {
+		transform: rotate(-45deg) translate(5px, -5px);
+	}
+
+	@media (max-width: 768px) {
+		.nav-toggle {
+			display: flex;
+		}
+
+		.nav-links {
+			position: fixed;
+			top: 60px;
+			left: 0;
+			right: 0;
+			flex-direction: column;
+			align-items: stretch;
+			padding: 8px 16px 16px;
+			gap: 2px;
+			background: var(--bg);
+			border-bottom: 1px solid var(--border);
+			transform: translateY(-110%);
+			opacity: 0;
+			pointer-events: none;
+			transition: all 0.3s ease;
+		}
+
+		.nav-links.open {
+			transform: translateY(0);
+			opacity: 1;
+			pointer-events: all;
+		}
+
+		.nav-link {
+			padding: 11px 14px;
+			font-size: 15px;
+			width: 100%;
+		}
+
+		.nav-cta {
+			margin-left: 0;
+			margin-top: 4px;
+			text-align: center;
+		}
+	}
+</style>
